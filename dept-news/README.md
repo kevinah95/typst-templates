@@ -30,7 +30,7 @@ publication-info: |
   Purview College, 17 Earlmeyer D, Exampleville, TN 59341. \
   <mailto:newsletter@chem.purview.edu>
 format:
-  dashing-dept-news-typst: default
+  dept-news-typst: default
 ---
 ```
 
