@@ -1,6 +1,6 @@
 #show: ieee.with(
 $if(title)$
-  title: "$title$",
+  title: [$title$],
 $endif$
 $if(abstract)$
   abstract: [$abstract$],
@@ -22,6 +22,9 @@ authors: (
 $endif$
 $if(index-terms)$
   index-terms: ($for(index-terms)$"$it$"$sep$, $endfor$),
+$endif$
+$if(figure-supplement)$
+  figure-supplement: [$figure-supplement$],
 $endif$
 )
 
