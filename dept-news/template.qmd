@@ -3,7 +3,7 @@ title: "Chemistry Department"
 edition: |
    March 18th, 2023 \
    Purview College
-hero-image: 
+hero-image:
   path: "newsletter-cover.jpg"
   caption: "Award winning science"
 publication-info: |
@@ -29,7 +29,7 @@ The award will be presented to our department in a formal ceremony that will tak
 
 ::: {.article}
 ## Guest lecture from Dr. Elizabeth Lee
-  
+
 Elizabeth Lee, a leading researcher in the field of biochemistry, spoke about her recent work on the development of new cancer treatments using small molecule inhibitors, and the lecture was very well-attended by both students and faculty.
 
 In case you missed it, there's a recording on [EDGARP](http://purview.edu/lts/2023-lee")
@@ -45,6 +45,6 @@ These trainings are crucial for ensuring that all members of the department are 
 
 ## Another Success
 
-Aliquam sit amet lectus ut libero congue viverra. Morbi quis diam ullamcorper, iaculis ex non, fermentum mauris. Aliquam consectetur vitae purus vitae laoreet. Sed elementum ligula et mauris eleifend dignissim. 
+Aliquam sit amet lectus ut libero congue viverra. Morbi quis diam ullamcorper, iaculis ex non, fermentum mauris. Aliquam consectetur vitae purus vitae laoreet. Sed elementum ligula et mauris eleifend dignissim.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultrices, dolor molestie viverra interdum, nibh urna dignissim nisi, et rhoncus libero nibh a nulla. Etiam ac augue vel leo vehicula finibus at non tortor. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultrices, dolor molestie viverra interdum, nibh urna dignissim nisi, et rhoncus libero nibh a nulla. Etiam ac augue vel leo vehicula finibus at non tortor.
