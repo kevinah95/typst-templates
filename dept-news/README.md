@@ -22,7 +22,7 @@ title: "Chemistry Department"
 edition: |
    March 18th, 2023 \
    Purview College
-hero-image: 
+hero-image:
   path: "newsletter-cover.jpg"
   caption: "Award winning science"
 publication-info: |
@@ -30,7 +30,7 @@ publication-info: |
   Purview College, 17 Earlmeyer D, Exampleville, TN 59341. \
   <mailto:newsletter@chem.purview.edu>
 format:
-  dept-news-typst: default
+  dashing-dept-news-typst: default
 ---
 ```
 

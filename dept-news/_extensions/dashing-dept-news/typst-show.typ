@@ -1,4 +1,4 @@
-#show: dept-news.with(
+#show: newsletter.with(
 $if(title)$
   title: [$title$],
 $endif$
@@ -7,7 +7,7 @@ $if(edition)$
 $endif$
 $if(hero-image)$
   hero-image: (
-    path: "$hero-image.path$",
+    image: image("$hero-image.path$"),
     caption: [$hero-image.caption$]
   ),
 $endif$

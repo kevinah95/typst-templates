@@ -3,7 +3,7 @@
 
 // This function gets your whole document as its `body` and formats
 // it as the fun newsletter of a college department.
-#let dept-news(
+#let newsletter(
   // The newsletter's title.
   title: [Newsletter title],
 
@@ -52,6 +52,7 @@
   show link: underline
 
   // Configure figures.
+  set figure(gap: 24pt)
   show figure: it => block({
     // Display a backdrop rectangle.
     move(dx: -3%, dy: 1.5%, rect(
@@ -62,12 +63,15 @@
 
     // Display caption.
     if it.has("caption") {
-      set align(center)
-      set text(font: "Syne")
-      v(if it.has("gap") { it.gap } else { 24pt }, weak: true)
-      if it.supplement != none and it.numbering != none {
-        [#it.supplement #counter(figure).display(it.numbering): ]
+      show figure.caption: caption => {
+        set align(center)
+        set text(font: "Syne")
+        if it.supplement != none and it.numbering != none {
+          [#it.supplement #counter(figure).display(it.numbering): ]
+        }
       }
+
+      v(if it.has("gap") { it.gap } else { 24pt }, weak: true)
       it.caption
     }
 
@@ -88,17 +92,20 @@
     text(fill: white, weight: "medium", 14pt, align(right + bottom, edition)),
 
     // Hero image.
-    style(styles => {
+    context {
       if hero-image == none {
         return
       }
 
       // Measure the image and text to find out the correct line width.
       // The line should always fill the remaining space next to the image.
-      let img = image(hero-image.path, width: 14cm)
+      let img = {
+        set image(width: 14cm)
+        hero-image.image
+      }
       let text = text(size: 25pt, fill: white, font: "Syne Tactile", hero-image.caption)
-      let img-size = measure(img, styles)
-      let text-width = measure(text, styles).width + 12pt
+      let img-size = measure(img)
+      let text-width = measure(text).width + 12pt
       let line-length = img-size.height - text-width
 
       grid(
@@ -116,13 +123,36 @@
           line(angle: 90deg, length: line-length, stroke: 3pt + white),
         ),
       )
-    }),
+    },
 
     // Nothing next to the hero image.
     none,
 
     // The main flow with body and publication info.
     {
+      // A stylized block with a quote and its author.
+      show quote: it => {
+        if not it.block {
+          return it
+        }
+
+        box(inset: (x: 0.4em, y: 12pt), width: 100%, {
+          set text(font: "Syne")
+          grid(
+            columns: (1em, auto, 1em),
+            column-gutter: 12pt,
+            rows: (1em, auto),
+            row-gutter: 8pt,
+            text(5em)["],
+            line(start: (0pt, 0.45em), length: 100%),
+            none, none,
+            text(1.4em, align(center, it.body)),
+            none, none,
+            v(8pt) + align(right, text(font: "Barlow")[---#it.attribution]),
+          )
+        })
+      }
+
       set par(justify: true)
       body
       v(1fr)
@@ -131,34 +161,17 @@
     },
 
     // The sidebar with articles.
-    locate(loc => {
+    context {
       set text(fill: white, weight: 500)
       show heading: underline.with(stroke: 2pt, offset: 4pt)
       v(44pt)
-      for element in articles.final(loc) {
+      for element in articles.final() {
         element
         v(24pt, weak: true)
       }
-    }),
+    },
   )
 }
-
-// A stylized block with a quote and its author.
-#let blockquote(body) = box(inset: (x: 0.4em, y: 12pt), width: 100%, {
-  set text(font: "Syne")
-  grid(
-    columns: (1em, auto, 1em),
-    column-gutter: 12pt,
-    rows: (1em, auto),
-    row-gutter: 8pt,
-    text(5em)["],
-    line(start: (0pt, 0.45em), length: 100%),
-    none, none,
-    text(1.4em, align(center, body)),
-    none, none
-  )
-})
-
 
 // An article that is displayed in the sidebar. Can be added
 // anywhere in the document. All articles are collected automatically.
