@@ -18,8 +18,9 @@ format:
 
 It's our pleasure to announce that our department has recently been awarded the highly-coveted Sixtus Award for Excellence in Chemical Research. This is a massive achievement for our department, and we couldn't be prouder.
 
-> Our Lab has synthesized the most elements of them all.\
-> --- Prof. Herzog
+::: {#quote attribution="Prof. Herzog"}
+Our Lab has synthesized the most elements of them all.
+:::
 
 The Sixtus Award is a prestigious recognition given to institutions that have demonstrated exceptional performance in chemical research. The award is named after the renowned chemist Sixtus Leung, who made significant contributions to the field of organic chemistry.
 
